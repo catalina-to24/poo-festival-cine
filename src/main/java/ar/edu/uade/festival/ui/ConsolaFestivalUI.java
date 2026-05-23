@@ -7,6 +7,7 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Scanner;
 
+import ar.edu.uade.festival.excepcion.VolverAlMenuException;
 import ar.edu.uade.festival.model.AbonoFestival;
 import ar.edu.uade.festival.model.Actor;
 import ar.edu.uade.festival.model.Director;
@@ -70,6 +71,8 @@ public class ConsolaFestivalUI {
                     case "0" -> salir = true;
                     default -> System.out.println("Opcion invalida.");
                 }
+            } catch (VolverAlMenuException ex) {
+                // Usuario solicitó volver al menu: simplemente continuar al siguiente ciclo
             } catch (RuntimeException ex) {
                 System.out.println(ex.getMessage());
             }
@@ -284,8 +287,12 @@ public class ConsolaFestivalUI {
     }
 
     private String leerTexto(String mensaje) {
-        System.out.print(mensaje);
-        return scanner.nextLine().trim();
+        System.out.print(mensaje + " (m = menu): ");
+        String texto = scanner.nextLine().trim();
+        if (texto.equalsIgnoreCase("m") || texto.equalsIgnoreCase("menu")) {
+            throw new VolverAlMenuException();
+        }
+        return texto;
     }
 
     private int leerEntero(String mensaje) {
