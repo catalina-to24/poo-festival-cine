@@ -10,7 +10,7 @@ Tecnologias
 
 Como ejecutar
 1. Abrir el proyecto en un IDE con soporte Java.
-2. Ejecutar la clase principal: ar.edu.uade.festival.app.Main.
+2. Ejecutar la clase principal: src.app.Main.
 
 Nota: si el entorno no tiene Maven instalado, se puede ejecutar igualmente desde el IDE corriendo Main.
 
@@ -51,12 +51,12 @@ Supuestos
 - La interfaz es por consola.
 
 Estructura de paquetes
-- ar.edu.uade.festival.model: entidades del dominio.
-- ar.edu.uade.festival.service: logica de negocio y validaciones.
-- ar.edu.uade.festival.excepcion: excepciones de dominio.
-- ar.edu.uade.festival.persistencia: carga y guardado en archivo.
-- ar.edu.uade.festival.ui: menu e interaccion por consola.
-- ar.edu.uade.festival.app: punto de entrada (Main).
+- model: entidades del dominio.
+- service: logica de negocio y validaciones.
+- excepcion: excepciones de dominio.
+- persistencia: carga y guardado en archivo.
+- ui: menu e interaccion por consola.
+- app: punto de entrada (Main).
 
 Persistencia
 - Estrategia: serializacion de objetos Java.
